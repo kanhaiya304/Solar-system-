@@ -3,35 +3,16 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Working Three.js Demo</title>
-  <style>
-    body { margin: 0; overflow: hidden; background: black; }
-    canvas { display: block; }
-  </style>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r148/three.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Solar System - Three.js</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <script>
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
-    const renderer = new THREE.WebGLRenderer({ antialias: true });
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    document.body.appendChild(renderer.domElement);
-
-    const geometry = new THREE.SphereGeometry(2, 32, 32);
-    const material = new THREE.MeshBasicMaterial({ color: 0xffff00 });
-    const sun = new THREE.Mesh(geometry, material);
-    scene.add(sun);
-
-    camera.position.z = 10;
-
-    function animate() {
-      requestAnimationFrame(animate);
-      sun.rotation.y += 0.01;
-      renderer.render(scene, camera);
-    }
-
-    animate();
-  </script>
+  <h1>Solar System Simulation</h1>
+  <button id="toggle-animation">Pause</button>
+  <div id="controls"></div>
+  <div id="scene-container"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
