@@ -1,19 +1,20 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Solar System</title>
+  <title>Working Three.js Demo</title>
   <style>
-    body { margin: 0; background: black; }
-    canvas { display: block; width: 100vw; height: 100vh; }
+    body { margin: 0; overflow: hidden; background: black; }
+    canvas { display: block; }
   </style>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r148/three.min.js"></script>
 </head>
 <body>
   <script>
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-    const renderer = new THREE.WebGLRenderer();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ antialias: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
     document.body.appendChild(renderer.domElement);
 
@@ -29,6 +30,7 @@
       sun.rotation.y += 0.01;
       renderer.render(scene, camera);
     }
+
     animate();
   </script>
 </body>
